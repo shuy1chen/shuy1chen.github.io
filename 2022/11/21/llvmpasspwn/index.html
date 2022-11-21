@@ -20,28 +20,41 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="chen">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="参考下面几篇博客即可https:&#x2F;&#x2F;bbs.pediy.com&#x2F;thread-273229.htmhttps:&#x2F;&#x2F;bbs.pediy.com&#x2F;thread-274259.htmllvm简单来说就是一个框架，前端是clang一般，中间会有一个中间件，有好几种格式。我们可以通过opt这样一个程序对这个中间件分析优化，词汇优化这种。分析要有个依据对吧，这里呢就是那个.so文件，这个文件是通过clang生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="llvmpasspwn">
+<meta property="og:url" content="http://example.com/2022/11/21/llvmpasspwn/index.html">
 <meta property="og:site_name" content="chen">
+<meta property="og:description" content="参考下面几篇博客即可https:&#x2F;&#x2F;bbs.pediy.com&#x2F;thread-273229.htmhttps:&#x2F;&#x2F;bbs.pediy.com&#x2F;thread-274259.htmllvm简单来说就是一个框架，前端是clang一般，中间会有一个中间件，有好几种格式。我们可以通过opt这样一个程序对这个中间件分析优化，词汇优化这种。分析要有个依据对吧，这里呢就是那个.so文件，这个文件是通过clang生">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21696805/1666000964444-e3602239-1966-4497-9fdc-877d021e74cd.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21696805/1665999912245-c33e7a0c-7db4-4b33-ad3b-995a00ece3e8.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21696805/1666000096864-31309b45-71bb-451c-83cc-feef820186ef.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21696805/1666022924242-d4088dbe-bc3c-4360-8f7c-049ab74450bc.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21696805/1666103175000-4ecd946c-b5f1-4bd6-a8c3-8be5d96c69c0.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21696805/1666103138559-0d300322-565d-47a3-8546-ed085f72ccc3.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21696805/1666682306101-a629f837-4583-40ba-99f1-b2cfda06c673.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2022/png/21696805/1666682713944-a5504094-0d5d-477e-963d-4f73ad1684eb.png">
+<meta property="article:published_time" content="2022-11-21T07:53:17.000Z">
+<meta property="article:modified_time" content="2022-11-21T07:57:11.774Z">
 <meta property="article:author" content="chen">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2022/png/21696805/1666000964444-e3602239-1966-4497-9fdc-877d021e74cd.png">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/11/21/llvmpasspwn/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>chen</title>
+  <title>llvmpasspwn | chen</title>
   
 
 
@@ -139,9 +152,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -157,10 +171,9 @@
       <meta itemprop="name" content="chen">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/11/21/llvmpasspwn/" class="post-title-link" itemprop="url">llvmpasspwn</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          llvmpasspwn
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -174,6 +187,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -184,7 +204,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>参考下面几篇博客即可<br><a target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-273229.htm">https://bbs.pediy.com/thread-273229.htm</a><br><a target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-274259.htm">https://bbs.pediy.com/thread-274259.htm</a><br>llvm简单来说就是一个框架，前端是clang一般，中间会有一个中间件，有好几种格式。我们可以通过opt这样一个程序对这个中间件分析优化，词汇优化这种。分析要有个依据对吧，这里呢就是那个.so文件，这个文件是通过clang生成出来的一个文件，根据这个文件找到漏洞将opt这个程序任意执行getshell就行了。<br>gcc的话貌似中间件是不可见的，所以想对代码优化了插桩了就比较困难。还要根据新的语言和平台增加更多新的东西，这样看来llvm确实是有不少优势的。</p>
+        <p>参考下面几篇博客即可<br><a target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-273229.htm">https://bbs.pediy.com/thread-273229.htm</a><br><a target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-274259.htm">https://bbs.pediy.com/thread-274259.htm</a><br>llvm简单来说就是一个框架，前端是clang一般，中间会有一个中间件，有好几种格式。我们可以通过opt这样一个程序对这个中间件分析优化，词汇优化这种。分析要有个依据对吧，这里呢就是那个.so文件，这个文件是通过clang生成出来的一个文件，根据这个文件找到漏洞将opt这个程序任意执行getshell就行了。<br>gcc的话貌似中间件是不可见的，所以想对代码优化了插桩了就比较困难。还要根据新的语言和平台增加更多新的东西，这样看来llvm确实是有不少优势的。</p>
 <h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>可以选择ida远程调试或者gdb<br>gdb调试要在一个函数之后才会将这个so文件加载进来，我们下断点要在这里之后<br>  <img src="https://cdn.nlark.com/yuque/0/2022/png/21696805/1666000964444-e3602239-1966-4497-9fdc-877d021e74cd.png" alt="image.png"><br>在这之后要</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">clang<span class="number">-8</span> -emit-llvm -S <span class="built_in">exp</span>.c -o <span class="built_in">exp</span>.ll</span><br><span class="line">gdb opt<span class="number">-8</span> \</span><br><span class="line">    -ex <span class="string">&quot;set arg -load ./VMPass.so -VMPass ./exp.ll&quot;</span>\</span><br><span class="line">    -ex <span class="string">&quot;b *0x4b8d60 &quot;</span> \</span><br><span class="line">    -ex <span class="string">&quot;r&quot;</span> \</span><br><span class="line">    -ex <span class="string">&quot;n&quot;</span> \</span><br><span class="line">    -ex <span class="string">&quot;b *(0x7ffff3b5d000+0x0727C)&quot;</span> \</span><br><span class="line">    -ex <span class="string">&quot;c&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -210,91 +230,47 @@
 
 <p><img src="https://cdn.nlark.com/yuque/0/2022/png/21696805/1666682713944-a5504094-0d5d-477e-963d-4f73ad1684eb.png" alt="image.png"></p>
 
-      
     </div>
 
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>chen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2022/11/21/llvmpasspwn/" title="llvmpasspwn">http://example.com/2022/11/21/llvmpasspwn/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/18/hello-world/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chen">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chen">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/08/18/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-08-18 21:16:55" itemprop="dateCreated datePublished" datetime="2022-08-18T21:16:55+08:00">2022-08-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/08/18/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -347,6 +323,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E8%AF%95"><span class="nav-number">1.</span> <span class="nav-text">调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A2%E5%B8%BD%E6%9D%AF2021-simplevm"><span class="nav-number">2.</span> <span class="nav-text">红帽杯2021-simplevm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ciscn-2021-satool"><span class="nav-number">3.</span> <span class="nav-text">Ciscn-2021-satool</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E7%BD%91%E6%9D%AF2022-yakagame"><span class="nav-number">4.</span> <span class="nav-text">强网杯2022-yakagame</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ciscn-2022-satool"><span class="nav-number">5.</span> <span class="nav-text">Ciscn-2022-satool</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
